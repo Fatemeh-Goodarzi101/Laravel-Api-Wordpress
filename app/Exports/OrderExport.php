@@ -2,14 +2,11 @@
 
 namespace App\Exports;
 
-use Illuminate\Contracts\Translation\HasLocalePreference;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Query\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class OrderExport implements HasLocalePreference
+class OrderExport implements FromView
 {
     use Exportable;
     protected $finalOrders;
@@ -19,20 +16,10 @@ class OrderExport implements HasLocalePreference
         $this->finalOrders = $finalOrders;
     }
 
-//    public function view(): View
-//    {
-//        return view('pages.showExport' , [
-//           'data' => $this->finalOrders
-//        ]);
-//    }
-
-//    public function query()
-//    {
-//        return $this->finalOrders;
-//    }
-
-    public function preferredLocale()
+    public function view(): View
     {
-        return $this->finalOrders;
+        return view('pages.downloadExport' , [
+           'data' => $this->finalOrders
+        ]);
     }
 }

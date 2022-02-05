@@ -65,24 +65,24 @@
         <!-- /site header -->
         <!-- Main navigation -->
         <ul id="side-nav" class="main-menu navbar-collapse collapse">
-            <li class="has-sub active">
+            <li class="has-sub {{ (request()->is('api/index')) ? 'active' : '' }}">
                 <a href="{{ route('index') }}"><i class="icon-gauge"></i><span class="title">راهنما</span></a>
             </li>
             <li class="has-sub">
                 <a href="#"><i class="icon-layout"></i><span class="title">گزارش گیری</span></a>
-                <ul class="nav collapse">
-                    <li><a href="{{ route('reportForm') }}"><span class="title">گزارش سفارشات</span></a></li>
-                    <li><a href="{{ route('productReportForm') }}"><span class="title">گزارش موجودی محصولات</span></a></li>
+                <ul class="main-menu navbar-collapse">
+                    <li class="{{ (request()->is('api/reportForm')) ? 'active' : '' }}"><a href="{{ route('reportForm') }}"><span class="title">گزارش سفارشات</span></a></li>
+                    <li class="{{ (request()->is('api/reportProduct')) ? 'active' : '' }}"><a href="{{ route('productReportForm') }}"><span class="title">گزارش موجودی محصولات</span></a></li>
                 </ul>
             </li>
             <li class="has-sub">
                 <a href="#"><i class="icon-newspaper"></i><span class="title">آپلود اطلاعات</span></a>
-                <ul class="nav collapse">
-                    <li><a href="{{ route('importRegPrice') }}"><span class="title">قیمت عادی محصولات</span></a></li>
-                    <li><a href="{{ route('importSalePrice') }}"><span class="title">قیمت فروش ویژه محصولات</span></a></li>
-                    <li><a href="{{ route('importPrice') }}"><span class="title">قیمت عادی و فروش ویژه محصولات</span></a></li>
-                    <li><a href="{{ route('importQuantity') }}"><span class="title">موجودی محصولات</span></a></li>
-                    <li><a href="{{ route('importName') }}"><span class="title">نام محصولات</span></a></li>
+                <ul class="main-menu navbar-collapse">
+                    <li class="{{ (request()->is('api/importRegPrice')) ? 'active' : '' }}"><a href="{{ route('importRegPrice') }}"><span class="title">قیمت عادی محصولات</span></a></li>
+                    <li class="{{ (request()->is('api/importSalePrice')) ? 'active' : '' }}"><a href="{{ route('importSalePrice') }}"><span class="title">قیمت فروش ویژه محصولات</span></a></li>
+                    <li class="{{ (request()->is('api/importPrice')) ? 'active' : '' }}"><a href="{{ route('importPrice') }}"><span class="title">قیمت عادی و فروش ویژه محصولات</span></a></li>
+                    <li class="{{ (request()->is('api/importQuantity')) ? 'active' : '' }}"><a href="{{ route('importQuantity') }}"><span class="title">موجودی محصولات</span></a></li>
+                    <li class="{{ (request()->is('api/importName')) ? 'active' : '' }}"><a href="{{ route('importName') }}"><span class="title">نام محصولات</span></a></li>
                 </ul>
             </li>
         </ul>

@@ -27,6 +27,7 @@ Route::namespace('App\Http\Controllers\api')->middleware('auth')->group(function
 
     Route::get('/reportForm' , [ OrderController::class , 'showOrderReportForm' ])->name('reportForm');
     Route::post('/sendReport' , [ OrderController::class , 'sendOrderReport' ])->name('sendReport');
+    Route::post('/downloadReport' , [OrderController::class , 'export'])->name('downloadReport');
 
     Route::get('/reportProduct' , [ ProductController::class , 'showProductReportForm' ])->name('productReportForm');
     Route::post('/sendProductReport' , [ ProductController::class , 'sendProductReport' ])->name('sendProductReport');
